@@ -1,9 +1,13 @@
 .date-app {
-  width: 350px;
+  width: 500px;
   margin: 20px auto;
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   display: flex;
@@ -12,4 +16,11 @@
   gap: 15px;
   align-items: center;
   margin-bottom: 10px;
+}
+button {
+  display: block;
+  margin: 10px auto;
+}
+p {
+  margin: 0;
 }

@@ -12,14 +12,6 @@ function Counter() {
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
 
-  // Handler fn - Step
-  function increaseStep() {
-    setStep((s) => s + 1);
-  }
-  function decreseStep() {
-    setStep((s) => s - 1);
-  }
-
   // Handler fn - Count
   function increaseCount() {
     setCount((c) => c + step);
@@ -37,9 +29,15 @@ function Counter() {
   return (
     <>
       <div className='container'>
-        <button onClick={decreseStep}>-</button>
         Step: {step}
-        <button onClick={increaseStep}>+</button>
+        <input
+          type='range'
+          id='myRange'
+          min='1'
+          max='10'
+          value={step}
+          onChange={(e) => setStep(+e.target.value)}
+        ></input>
       </div>
 
       <div className='container'>
@@ -57,6 +55,19 @@ function Counter() {
             : `${Math.abs(count)} days from today was `}
         </span>
         <span>{returnDate(count)}</span>
+
+        {count > 0 || step > 1 ? (
+          <button
+            onClick={() => {
+              setCount(0);
+              setStep(1);
+            }}
+          >
+            Reset
+          </button>
+        ) : (
+          ""
+        )}
       </p>
     </>
   );
