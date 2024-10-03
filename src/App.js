@@ -42,7 +42,11 @@ function Counter() {
 
       <div className='container'>
         <button onClick={decreaseCount}>-</button>
-        Count: {count}
+        <input
+          type='text'
+          value={count}
+          onChange={(e) => setCount(+e.target.value)}
+        />
         <button onClick={increaseCount}>+</button>
       </div>
 
